@@ -1,0 +1,63 @@
+{
+  "title": "OPI NODE.JS",
+  "common": {
+    "exercise": {
+      "pass": {
+        "sync": "Käytetty synkronista metodia: {{{method}}}",
+        "async": "Käytetty asynkronista metodia: {{{method}}}"
+      },
+      "fail": {
+        "sync": "Käytetty synkronista metodia: {{{method}}}",
+        "async": "Käytetty asynkronista metodia: {{{method}}}",
+        "unused": "Käytetty asynkronista metodia `fs` moduulista",
+        "unexpected_error": "Odottamaton virhe HTTP-palvelimelta: {{{message}}}",
+        "connection": "Virhe yhdistäessä {{{address}}}: {{{message}}}"
+      }
+    }
+  },
+  "exercises": {
+    "MAKE IT MODULAR": {
+      "fail": {
+        "missing_module": "Ei käytä ylimääräistä moduulitiedostoa, sinun täytyy require() moduuli ratkaistaksesi tämän harjoituksen",
+        "loadError": "Virhe ladattaessa moduulitiedostoa [{{path}}]: {{{message}}}",
+        "mod": {
+          "_base": "Ylimääräinen moduulitiedostosi [{{path}}] {{{message}}}",
+          "no_export": "ei julkaise **yhtä funktiota**. Sinun täytyy käyttää `module.exports = function () {}` muotoa.",
+          "arguments": "julkaisee funktion joka ottaa vähemmän kuin **kolme** argumenttia. Sinun täytyy hyväksyä kansio, filtteri and a **takaisinkutsu**.",
+          "missing_callback": "ei kutsu takaisinkutsuargumenttia fs.readdir() funktiosta tulevan virheen jälkeen",
+          "missing_error": "ei palauta virhettä joka on tullut funktiosta `fs.readdir()`.\n  Käytä seuraavaa Node.js:n idiomaattista muotoa takaisinkutsusi sisällä `fs.readdir()`:\n\tif (err)\n\t  return callback(err)",
+          "callback_arguments": "ei palauta kahta argumenttia takaisinkutsufunktiosta (oletettiin `null` ja lista tiedostonimistä)",
+          "dont_use_dot": "olettaa '.'-alkuisen päätteen, pitäisi vastaanottaa toisena komentoriviargumenttina ilman lisättyä '.'",
+          "array_wrong_size": "ei palauttanut listaa oikealla määrällä elementtejä toisena argumenttina takaisinkutsussa",
+          "dotExt": "saattaa vastata \"ext\" päätteen \".ext\" sijaan",
+          "array_comparison": "ei palauttanut oikeaa listaa tiedostoista toisena argumenttina takaisinkutsussa",
+          "missing_array_argument": "ei palauttanut listaoliota toisena argumenttina takaisinkutsussa",
+          "callback_error": "palautti virheen takaisinkutsussa:\n\t{{{error}}}",
+          "timeout": "ei kutsunut takaisinkutsua",
+          "unexpected": "heitti virheen:\n\t{{{error}}}"
+        }
+      },
+      "pass": {
+        "singleFunction": "Ylimääräinen moduulitiedosto julkaisee yhden funktion",
+        "arguments": "Ylimääräinen moduulitiedosto julkaisee funktion joka ottaa {{{count}}} argumenttia",
+        "error": "Ylimääräinen moduulitiedosto käsittelee virheet asianmukaisesti",
+        "callback": "Ylimääräinen moduulitiedosto käsittelee takaisinkutsuargumentin",
+        "callback_arguments": "Ylimääräinen moduulitiedosto palautti kaksi argumenttia takaisinkutsufunktiossa",
+        "array_argument": "Ylimääräinen moduulitiedosto palautti listan toisena argumenttina takaisinkutsufunktiossa",
+        "dont_use_dot": "Ylimääräinen moduulitiedosto käsittelee asianmukaisesti '.'-alkuisen päätteen",
+        "array_size": "Ylimääräinen moduulitiedosto palautti oikean määrän elementtejä toisena argumenttina takaisinkutsufunktiossa",
+        "final": "Ylimääräinen moduulitiedosto palautti oikean listan tiedostoja toisena argumenttina takaisinkutsufunktiossa"
+      }
+    },
+    "TIME SERVER": {
+      "fail": {
+        "connection": "Virhe yhdistäessä localhost:{{port}}: {{{message}}}"
+      }
+    },
+    "HTTP FILE SERVER": {
+      "fail": {
+        "no_createReadStream": "Käytetty muuta fs-metodia kuin fs.createReadStream(): {{{method}}}"
+      }
+    }
+  }
+}
